@@ -1,5 +1,7 @@
 const { Sequelize } = require('sequelize');
 
+require('dotenv').config({ path: '.env.local' });
+
 const connUrl =
     process.env.DB_DIALECT + '://' +
     process.env.DB_USER + ':' +
@@ -11,6 +13,7 @@ const db = new Sequelize(connUrl);
 
 const models = [
     require('../models/todo'),
+    
 ];
 
 for (const model of models) {
